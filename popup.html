@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intentional Instagram</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="title-group">
+          <h1>Intentional IG</h1>
+          <span class="status-indicator">
+            <span class="status-dot"></span> Active
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Navigation & Reels Toggles -->
+    <main class="settings-list">
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Hide Reels button</span>
+          <span class="setting-desc">Removes Reels from desktop sidebar</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-hide-nav">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Filter Search & Explore</span>
+          <span class="setting-desc">Hides recommendation grids; keeps search</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-filter-explore">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">One-Reel limit</span>
+          <span class="setting-desc">Watch 1 Reel, blocks scrolling to next</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-limit-reels">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Feed Limit Controls -->
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Home Feed Limits</span>
+          <span class="setting-desc">Limit posts & session browsing time</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-feed-limits">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="limits-config-panel" id="limits-config-panel">
+        <div class="input-row">
+          <label for="input-post-limit" class="input-label">Max Posts per Session</label>
+          <input type="number" id="input-post-limit" min="1" max="100" value="15" class="num-input">
+        </div>
+        <div class="input-row">
+          <label for="input-time-limit" class="input-label">Time Limit (minutes)</label>
+          <input type="number" id="input-time-limit" min="1" max="180" value="10" class="num-input">
+        </div>
+        <div class="input-row">
+          <label for="input-view-threshold" class="input-label">View Threshold (seconds)</label>
+          <input type="number" id="input-view-threshold" min="0.5" max="10" step="0.5" value="1.5" class="num-input">
+        </div>
+      </div>
+    </main>
+
+    <!-- Current Session Live Monitor -->
+    <section class="session-card">
+      <div class="session-card-header">
+        <span class="session-card-title">Current Session</span>
+        <span class="session-status-badge" id="session-badge">Active</span>
+      </div>
+      <div class="session-metrics">
+        <div class="metric">
+          <span class="metric-label">Posts Viewed</span>
+          <span class="metric-value" id="session-posts-display">0 / 15</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Active Time</span>
+          <span class="metric-value" id="session-time-display">0m 00s / 10m</span>
+        </div>
+      </div>
+      <button type="button" class="btn-session-reset" id="btn-reset-session">
+        🔄 Start New Session
+      </button>
+    </section>
+
+    <!-- Focus Stats -->
+    <section class="stats-card">
+      <div class="stats-text">
+        <span class="stats-count" id="blocked-count">0</span>
+        <span class="stats-label">Doomscroll sessions prevented</span>
+      </div>
+      <button type="button" class="btn-reset" id="btn-reset-stats" title="Reset counter">Reset</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="privacy-note">🔒 100% Local & Private. No data collected.</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
